@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -30,7 +29,6 @@ build/
 
 ### VS Code ###
 .vscode/
-=======
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -42,4 +40,3 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
->>>>>>> 1132161c14f276176831a204ae11847e7a92b865
