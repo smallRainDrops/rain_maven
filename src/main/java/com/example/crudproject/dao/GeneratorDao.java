@@ -22,8 +22,8 @@ import java.util.Map;
 /**
  * 数据库接口
  *
- * @author Mark sunlightcs@gmail.com
- * @since 2018-07-24
+ * @author Mark rain_drops@163.com
+ * @since 2020-08-15
  */
 public interface GeneratorDao {
     List<Map<String, Object>> queryList(Map<String, Object> map);
