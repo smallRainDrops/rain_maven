@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crudproject.dao.DictionaryMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.crudproject.entity.DictionaryEntity" >
+        <result column="id" property="id" />
+        <result column="memo" property="memo" />
+        <result column="create" property="create" />
+        <result column="create_date" property="createDate" />
+        <result column="updater" property="updater" />
+        <result column="updater_date" property="updaterDate" />
+        <result column="dict_code" property="dictCode" />
+        <result column="parent_id" property="parentId" />
+        <result column="en_name" property="enName" />
+        <result column="ch_name" property="chName" />
+        <result column="enabled" property="enabled" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+                id,
+                memo,
+                CREATE,
+                createDate,
+                updater,
+                updaterDate,
+                dictCode,
+                parentId,
+                enName,
+                chName,
+                enabled
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.example.crudproject.entity.DictionaryEntity">
+        INSERT INTO rain_dictionary
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != memo'>
+                memo,
+            </if>
+            <if test ='null != create'>
+                create,
+            </if>
+            <if test ='null != createDate'>
+                create_date,
+            </if>
+            <if test ='null != updater'>
+                updater,
+            </if>
+            <if test ='null != updaterDate'>
+                updater_date,
+            </if>
+            <if test ='null != dictCode'>
+                dict_code,
+            </if>
+            <if test ='null != parentId'>
+                parent_id,
+            </if>
+            <if test ='null != enName'>
+                en_name,
+            </if>
+            <if test ='null != chName'>
+                ch_name,
+            </if>
+            <if test ='null != enabled'>
+                enabled
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != memo'>
+                #{memo},
+            </if>
+            <if test ='null != create'>
+                #{create},
+            </if>
+            <if test ='null != createDate'>
+                #{createDate},
+            </if>
+            <if test ='null != updater'>
+                #{updater},
+            </if>
+            <if test ='null != updaterDate'>
+                #{updaterDate},
+            </if>
+            <if test ='null != dictCode'>
+                #{dictCode},
+            </if>
+            <if test ='null != parentId'>
+                #{parentId},
+            </if>
+            <if test ='null != enName'>
+                #{enName},
+            </if>
+            <if test ='null != chName'>
+                #{chName},
+            </if>
+            <if test ='null != enabled'>
+                #{enabled}
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" >
+        DELETE FROM rain_dictionary
+        WHERE id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.example.crudproject.entity.DictionaryEntity">
+        UPDATE rain_dictionary
+        <set>
+            <if test ='null != memo'>memo = #{memo},</if>
+            <if test ='null != create'>create = #{create},</if>
+            <if test ='null != createDate'>create_date = #{createDate},</if>
+            <if test ='null != updater'>updater = #{updater},</if>
+            <if test ='null != updaterDate'>updater_date = #{updaterDate},</if>
+            <if test ='null != dictCode'>dict_code = #{dictCode},</if>
+            <if test ='null != parentId'>parent_id = #{parentId},</if>
+            <if test ='null != enName'>en_name = #{enName},</if>
+            <if test ='null != chName'>ch_name = #{chName},</if>
+            <if test ='null != enabled'>enabled = #{enabled}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+
+    <select id="load" resultMap="BaseResultMap">
+        SELECT *
+        FROM rain_dictionary
+        WHERE id = #{id}
+    </select>
+
+    <select id="pageList" resultMap="BaseResultMap">
+        SELECT *
+        FROM rain_dictionary
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="pageListCount" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM rain_dictionary
+    </select>
+
+</mapper>

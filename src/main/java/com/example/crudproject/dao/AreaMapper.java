@@ -7,6 +7,9 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * 不是我的
+ */
 public interface AreaMapper {
     long countByExample(AreaExample example);
 

@@ -8,6 +8,7 @@ package com.example.crudproject.utils;
  * @date 2016年11月15日 下午1:23:52
  */
 public class Constant {
-
+    public final static String SUCCESS ="0000";
+    public final static String FAIL ="9999";
 
 }
