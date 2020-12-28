@@ -1,0 +1,124 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>苏宁联盟结算中台系统</title>
+<link rel="shortcut icon" href="webstatic/images/lion.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="webstatic/js/vue/css/iview.css">
+<script type="text/javascript" src="webstatic/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="webstatic/js/common/md5.js"></script>
+<script src="webstatic/js/vue/js/vue.js"></script>
+<script src="${base}/webstatic/js/vue/js/iview.min.js"></script>
+<script>
+    window.passport_config = {
+        base: "${base}/",
+        loginTheme: "uaa"
+    };
+    Date.prototype.Format = function (fmt) { //
+        let o = {
+            "M+": this.getMonth() + 1,                 //月份
+            "d+": this.getDate(),                    //日
+            "h+": this.getHours(),                   //小时
+            "m+": this.getMinutes(),                 //分
+            "s+": this.getSeconds(),                 //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds()             //毫秒
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    };
+    var isNullOr = function (value) {
+        if(value === "" || value === null || typeof (value) === undefined){
+            return true;
+        }else{
+            return false;
+        }
+    };
+    var isNullAnd = function (value) {
+        if(value === "" && value === null && typeof (value) === undefined){
+            return true;
+        }else{
+            return false;
+        }
+    };
+</script>
+<style>
+    [v-cloak] {
+        display: none;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+
+    #main-block {
+        width: 94%;
+        padding: 0 10px;
+    }
+
+    .mytilte {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .ivu-form-item {
+        margin-bottom: 12px;
+        vertical-align: top;
+        zoom: 1;
+    }
+
+    textarea.ivu-input {
+        font-size: 12px;
+    }
+
+    .ivu-menu-dark {
+        background: #243542;
+    }
+
+    .layout-logo {
+        width: 400px;
+        height: 38px;
+        border-radius: 3px;
+        float: left;
+        position: relative;
+        top: 15px;
+        left: 20px;
+        line-height: 27px;
+        font-size: 20px;
+        padding: 0 12px;
+        color: white;
+    }
+
+    .layout-nav {
+        width: 420px;
+        margin: 0 auto;
+        margin-right: 20px;
+    }
+
+    .ivu-layout-sider-children {
+        background: #243542;
+        min-height: 831px;
+    }
+
+    #app {
+        padding: 14px;
+        background: #fff;
+    }
+
+    a {
+        color: #616161;
+    }
+
+    .switchMenu {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        padding: 7px;
+        color: white;
+        line-height: 15px;
+        font-size: 19px;
+        border-bottom: 1px solid #484545;
+        cursor: pointer;
+    }
+</style>

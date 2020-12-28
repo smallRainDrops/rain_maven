@@ -31,8 +31,8 @@ public class DictionaryServiceImpl implements DictionaryService {
             return  R.FAIL;
         }
         rainDictionary.setId(System.currentTimeMillis());
-        rainDictionary.setCreate(this.getClass().getName());
-        rainDictionary.setUpdater(this.getClass().getName());
+        rainDictionary.setCreate(this.getClass().getSimpleName());
+        rainDictionary.setUpdater(this.getClass().getSimpleName());
         rainDictionary.setCreateDate(new Date());
         rainDictionary.setUpdaterDate(new Date());
         rainDictionaryMapper.insert(rainDictionary);

@@ -39,6 +39,19 @@ public class TestController {
     @Autowired
     private AreaMapper areaMapper;
 
+
+    /**
+     * 测试接口
+     */
+    @ApiOperation(value = "获取用户详细信息", notes = "注意别出错")
+    @ResponseBody
+    @RequestMapping(value = "/dictUrl", method = RequestMethod.GET)
+    public String health01() {
+        return "redirect:dictList.html";
+    }
+
+
+
     /**
      * 测试接口
      */

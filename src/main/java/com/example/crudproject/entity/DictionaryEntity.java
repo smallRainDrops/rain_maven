@@ -1,6 +1,10 @@
 package com.example.crudproject.entity;
 
 import com.example.crudproject.entity.base.AbstractModel;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
 
 import javax.persistence.Entity;
 import java.io.Serializable;
@@ -11,112 +15,38 @@ import java.util.List;
  *  数据字典
  * @author 小雨点 2020-12-27
  */
-public class DictionaryEntity implements Serializable {
 
-    /**
-     * 字典编码
-     */
+@ApiOperation(value = "数据字典", notes = "数据字典")
+@ApiImplicitParams({
+        @ApiImplicitParam(name = "id", value = "id", required = false, dataType = "Long"),
+        @ApiImplicitParam(name = "memo", value = "备注", required = false, dataType = "String"),
+        @ApiImplicitParam(name = "create", value = "新增人", required = false, dataType = "String"),
+        @ApiImplicitParam(name = "createDate", value = "新增时间", required = false, dataType = "Date"),
+        @ApiImplicitParam(name = "updater", value = "修改人", required = false, dataType = "String"),
+        @ApiImplicitParam(name = "updaterDate", value = "修改时间", required = false, dataType = "Date"),
+        @ApiImplicitParam(name = "dictCode", value = "字典编码", required = false, dataType = "String"),
+        @ApiImplicitParam(name = "parentId", value = "父级字典id -1:根目录，其他:父级目录id", required = false, dataType = "Long"),
+        @ApiImplicitParam(name = "enName", value = "字典英文名称", required = false, dataType = "String"),
+        @ApiImplicitParam(name = "chName", value = "字典中文名称", required = false, dataType = "String"),
+        @ApiImplicitParam(name = "enabled", value = "使用状态", required = false, dataType = "Integer")
+}
+)
+public class DictionaryEntity extends AbstractModel {
+
+   @ApiModelProperty("字典编码")
     private String dictCode;
 
-    /**
-     * 父级字典id -1:根目录，其他:父级目录id
-     */
+    @ApiModelProperty("父级字典id -1:根目录，其他:父级目录id")
     private Long parentId;
 
-    /**
-     * 字典英文名称
-     */
+    @ApiModelProperty("字典英文名称")
     private String enName;
 
-    /**
-     * 字典中文名称
-     */
+    @ApiModelProperty("字典中文名称")
     private String chName;
 
-    /**
-     * 使用状态
-     */
+    @ApiModelProperty("使用状态")
     private Integer enabled;
-
-    /**
-     * id
-     */
-    private Long id;
-
-    /**
-     * 备注
-     */
-    private String memo;
-
-    /**
-     * 新增人
-     */
-    private String create;
-
-    /**
-     * 新增时间
-     */
-    private Date createDate;
-
-    /**
-     * 修改人
-     */
-    private String updater;
-
-    /**
-     * 修改时间
-     */
-    private Date updaterDate;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getMemo() {
-        return memo;
-    }
-
-    public void setMemo(String memo) {
-        this.memo = memo;
-    }
-
-    public String getCreate() {
-        return create;
-    }
-
-    public void setCreate(String create) {
-        this.create = create;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public String getUpdater() {
-        return updater;
-    }
-
-    public void setUpdater(String updater) {
-        this.updater = updater;
-    }
-
-    public Date getUpdaterDate() {
-        return updaterDate;
-    }
-
-    public void setUpdaterDate(Date updaterDate) {
-        this.updaterDate = updaterDate;
-    }
-
 
     public String getDictCode() {
         return dictCode;

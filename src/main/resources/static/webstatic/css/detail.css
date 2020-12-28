@@ -1,0 +1,15 @@
+body{background-color:#fff}
+table{border-collapse:collapse;}
+.operateBar{padding-top:10px;}
+.operateBar .right{margin-bottom:10px;}
+.choose-tab{font-size:14px;padding-bottom:10px;}
+.inputTable th{text-align:center!important;border:1px solid #ccc;}
+.inputTable input[type="text"]{height:20px;padding:2px 5px;border:1px solid #ccc;width:338px;box-sizing:content-box}
+.inputTable select{width:350px;height:25px;line-height:25px;border:1px solid #ccc;}
+.inputTable .input-min{width:140px!important;margin-right:10px;}
+.upload-div{padding:10px 0 10px 10px}
+.tips{padding:10px 0 10px 10px;color:#f00}
+.save-button{display:block;margin:10px auto;padding:5px 20px;font-size:14px;}
+.easyui-datebox{background-position:128px;}
+.fr{float:right;}
+.pt-10{padding-top:10px;}
