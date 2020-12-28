@@ -3,10 +3,7 @@ package com.example.crudproject.controller;
 import com.example.crudproject.entity.DictionaryEntity;
 import com.example.crudproject.service.DictionaryService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +27,7 @@ public class DictionaryController {
      * @author 大狼狗
      * @date 2020/12/27
      **/
-    @RequestMapping("/insert")
+    @PostMapping("/insert")
     public int insert(DictionaryEntity rainDictionary){
         return dictionaryService.insert(rainDictionary);
     }
@@ -40,7 +37,7 @@ public class DictionaryController {
      * @author 大狼狗
      * @date 2020/12/27
      **/
-    @RequestMapping("/delete")
+    @GetMapping("/delete")
     public String delete(int id){
         return dictionaryService.delete(id);
     }
@@ -50,7 +47,7 @@ public class DictionaryController {
      * @author 大狼狗
      * @date 2020/12/27
      **/
-    @RequestMapping("/update")
+    @PostMapping("/update")
     public String update(DictionaryEntity rainDictionary){
         return dictionaryService.update(rainDictionary);
     }
@@ -60,7 +57,7 @@ public class DictionaryController {
      * @author 大狼狗
      * @date 2020/12/27
      **/
-    @RequestMapping("/load")
+    @GetMapping("/load")
     public DictionaryEntity load(int id){
         return dictionaryService.load(id);
     }
@@ -70,7 +67,7 @@ public class DictionaryController {
      * @author 大狼狗
      * @date 2020/12/27
      **/
-    @RequestMapping("/pageList")
+    @PostMapping("/pageList")
     public Map<String, Object> pageList(@RequestParam(required = false, defaultValue = "0") int offset,
                                         @RequestParam(required = false, defaultValue = "10") int pagesize) {
         return dictionaryService.pageList(offset, pagesize);

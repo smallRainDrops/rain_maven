@@ -6,12 +6,10 @@ import com.example.crudproject.service.DictionaryService;
 import com.example.crudproject.utils.Constant;
 import com.example.crudproject.utils.R;
 import org.springframework.stereotype.Service;
+import sun.plugin2.util.SystemUtil;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 数据字典
@@ -32,7 +30,11 @@ public class DictionaryServiceImpl implements DictionaryService {
         if (rainDictionary == null) {
             return  R.FAIL;
         }
-
+        rainDictionary.setId(System.currentTimeMillis());
+        rainDictionary.setCreate(this.getClass().getName());
+        rainDictionary.setUpdater(this.getClass().getName());
+        rainDictionary.setCreateDate(new Date());
+        rainDictionary.setUpdaterDate(new Date());
         rainDictionaryMapper.insert(rainDictionary);
         return R.SUCCESS;
     }

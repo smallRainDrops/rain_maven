@@ -24,6 +24,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class Swagger2 {
     private static final Logger log = LoggerFactory.getLogger(Swagger2.class);
 
+    /**
+     * http://localhost/swagger-ui.html
+     * @return
+     */
     @Bean
     public Docket createRestApi() {
         log.warn("swagger已经初始化完成");
@@ -37,11 +41,11 @@ public class Swagger2 {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("众安 biz 服务构建RESTful APIs")
-                .description("众安 biz 服务API文档")
-                .termsOfServiceUrl("http://www.zhongan.com/")
-                .contact("za-shaojian")
-                .version("1.0")
+                .title("小雨点 biz 服务构建RESTful APIs")
+                .description("小雨点 biz 服务API文档")
+                .termsOfServiceUrl("http://localhost/swagger-ui.html")
+                .contact("小雨点")
+                .version("2.0")
                 .build();
     }
 

@@ -48,13 +48,13 @@ public interface DictionaryMapper {
      * @author 大狼狗
      * @date 2020/12/27
      **/
-    List<DictionaryEntity> pageList(int offset, int pagesize);
+    List<DictionaryEntity> pageList(@Param("offset") int offset, @Param("pageSize") int pageSize);
 
     /**
      * [查询] 分页查询 count
      * @author 大狼狗
      * @date 2020/12/27
      **/
-    int pageListCount(int offset,int pagesize);
+    int pageListCount(@Param("offset") int offset, @Param("pageSize") int pageSize);
 
 }

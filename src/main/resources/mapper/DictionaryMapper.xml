@@ -31,14 +31,12 @@
                 enabled
     </sql>
 
-    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.example.crudproject.entity.DictionaryEntity">
+    <insert id="insert" parameterType="com.example.crudproject.entity.DictionaryEntity">
         INSERT INTO rain_dictionary
         <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
             <if test ='null != memo'>
                 memo,
-            </if>
-            <if test ='null != create'>
-                create,
             </if>
             <if test ='null != createDate'>
                 create_date,
@@ -66,11 +64,9 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{id},
             <if test ='null != memo'>
                 #{memo},
-            </if>
-            <if test ='null != create'>
-                #{create},
             </if>
             <if test ='null != createDate'>
                 #{createDate},
