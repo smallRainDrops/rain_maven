@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
@@ -168,7 +169,6 @@ public class SqlExeService {
         String path = "D:\\JD\\";
         // step的 本地路径
         String fileName = "DOWNLOAD_DATA_" + System.currentTimeMillis();
-        StringBuilder content = new StringBuilder("");
         // 结果集
         QueryResult<Object[]> dataList;
         Object obj = sqlExe(sqlStr, limit, null);
@@ -178,6 +178,9 @@ public class SqlExeService {
                 List<Object[]> objectList = dataList.getDatas();
                 for (int i = 0; i < objectList.size(); i++) {
                     Object[] objNum = objectList.get(i);
+                    if(ObjectUtils.isEmpty(objNum)){
+                        continue;
+                    }
                     Map row2 = new LinkedHashMap<String, String>();
                     for (int j = 0; j < objNum.length; j++) {
                         if(i == 0){
