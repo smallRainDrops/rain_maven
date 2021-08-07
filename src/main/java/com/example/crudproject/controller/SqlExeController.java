@@ -79,23 +79,29 @@ public class SqlExeController extends BaseController {
         sqlExeService.sqlSpecExeExpData(sqlStr, limit);
         return "OK";
     }
-
-    public String getLocalIP() {
-        InetAddress addr = null;
-        try {
-            addr = InetAddress.getLocalHost();
-        } catch (UnknownHostException e) {
-            logger.error(e.toString(), e);
-            return "";
-        }
-        byte[] ipAddr = addr.getAddress();
-        String ipAddrStr = "";
-        for (int i = 0; i < ipAddr.length; i++) {
-            if (i > 0) {
-                ipAddrStr += ".";
-            }
-            ipAddrStr += ipAddr[i] & 0xFF;
-        }
-        return ipAddrStr;
-    }
+/**
+ * 获取 localIP
+ */
+//    public static void main(String[] args) {
+//        String localIP = getLocalIP();
+//        System.out.println(localIP);
+//    }
+//
+//    public static String getLocalIP() {
+//        InetAddress addr = null;
+//        try {
+//            addr = InetAddress.getLocalHost();
+//        } catch (UnknownHostException e) {
+//            return "";
+//        }
+//        byte[] ipAddr = addr.getAddress();
+//        String ipAddrStr = "";
+//        for (int i = 0; i < ipAddr.length; i++) {
+//            if (i > 0) {
+//                ipAddrStr += ".";
+//            }
+//            ipAddrStr += ipAddr[i] & 0xFF;
+//        }
+//        return ipAddrStr;
+//    }
 }
